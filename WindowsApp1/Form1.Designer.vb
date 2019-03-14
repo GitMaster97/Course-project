@@ -126,7 +126,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(308, 300)
+        Me.ClientSize = New System.Drawing.Size(295, 300)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.IncomingMessage)
         Me.Controls.Add(Me.StartStopKnopka)
