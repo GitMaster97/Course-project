@@ -1,5 +1,5 @@
 ﻿Public Class Form1
-    Private Sub NumericUpDown2_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown2.ValueChanged
+    Private Sub NumericUpDown2_ValueChanged(sender As Object, e As EventArgs) Handles ServerPort.ValueChanged
 
     End Sub
 
