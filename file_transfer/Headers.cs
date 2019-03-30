@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace file_transfer
 {
-    class Headers
+    public enum Headers : byte
     {
+        Queue,
+        Start,
+        Stop,
+        Pause,
+        Chunk
     }
 }

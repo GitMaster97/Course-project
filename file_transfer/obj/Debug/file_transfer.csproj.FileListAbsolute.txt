@@ -1,1 +1,5 @@
 C:\Users\Miroslav\source\repos\file_transfer\file_transfer\obj\Debug\file_transfer.csprojAssemblyReference.cache
+C:\Users\Miroslav\source\repos\file_transfer\file_transfer\obj\Debug\Main.resources
+C:\Users\Miroslav\source\repos\file_transfer\file_transfer\obj\Debug\file_transfer.Properties.Resources.resources
+C:\Users\Miroslav\source\repos\file_transfer\file_transfer\obj\Debug\file_transfer.csproj.GenerateResource.cache
+C:\Users\Miroslav\source\repos\file_transfer\file_transfer\obj\Debug\file_transfer.csproj.CoreCompileInputs.cache
