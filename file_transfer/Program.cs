@@ -8,9 +8,7 @@ namespace file_transfer
 {
     static class Program
     {
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
+        public static Random Rand;
         [STAThread]
         static void Main()
         {

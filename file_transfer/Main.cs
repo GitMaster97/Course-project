@@ -7,12 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using file_transfer;
 
 public partial class Main : Form
 {
+    private Listener listener;
+    private TransferClient transferClient;
+    private string outputFolder;
+    private Timer tmpOverallProg;
+
     public Main()
     {
         InitializeComponent();
+        listener = new Listener();
+        listener.Accepted += listener_Accepted;
+ 
+        tmpOverallProg = new Timer();
+        tmpOverallProg.Interval = 1000;
+        tmpOverallProg.Tick += tmpOverallProg_Tick;
+
+        outputFolder = "Transfers";
+
+        if (!Directory.Exists(outputFolder))
+        {
+            Directory.CreateDirectory(outputFolder);
+        }
 
         btnConnect.Click += new EventHandler(btnConnect_Click);
         btnStartServer.Click += new EventHandler(btnStartServer_Click);
@@ -26,9 +45,57 @@ public partial class Main : Form
         btnStopServer.Enabled = false;
     }
 
+    void tmpOverallProg_Tick(object sender, EventArgs e)
+    {
+
+    }                                                           
+
+    void listener_Accepted(object sender, SocketAcceptedEventArgs e)
+    {
+
+    }
+
     private void btnConnect_Click(object sender, EventArgs e)
     {
-		
+		if (transferClient == null)
+        {
+            transferClient = new TransferClient();
+            transferClient.Connect(txtCntHost.Text.Trim(), int.Parse(txtCntPort.Text.Trim()), connectCallback);
+            Enabled = false;
+        }
+        else
+        {
+            transferClient.Close();
+            transferClient = null;
+        }
+    }
+
+    private void connectCallback(object sender, string error)
+    {
+        if (InvokeRequired)
+        {
+            Invoke(new ConnectCallback(connectCallback), sender, error);
+            return;
+        }
+        Enabled = true;
+        if (error != null)
+        {
+            transferClient.Close();
+            transferClient = null;
+            MessageBox.Show(error, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            return;
+        }
+    }
+
+    private void registerEvents()
+    {
+
+    }
+
+    private void deregisterEvents()
+    {
+
     }
 
     private void btnStartServer_Click(object sender, EventArgs e)
